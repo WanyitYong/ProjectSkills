@@ -23,7 +23,7 @@ public class LinkedListGUI extends JFrame
 
 		//create button
 		Font fbutton = new Font("Serif", Font.BOLD, 15);
-		JButton button1 = new JButton("BALANCE INQUIRY");
+		JButton button1 = new JButton("Add Text");
 			button1.setFont(fbutton);
 			p1.fill = GridBagConstraints.VERTICAL;
 			p1.ipady = 20;
@@ -32,44 +32,44 @@ public class LinkedListGUI extends JFrame
 			p1.gridx = 0;
 			p1.gridy = 0;
 			panel1.add(button1, p1);
-		JButton button3 = new JButton(" MINI STATEMENT ");
-			button3.setFont(fbutton);
+		JButton button2 = new JButton("Remove Text");
+			button2.setFont(fbutton);
 			p1.fill = GridBagConstraints.VERTICAL;
 			p1.ipady = 20;
 			p1.gridx = 0;
 			p1.gridy = 3;
-			panel1.add(button3, p1);
-		JButton button5 = new JButton("    PIN CHANGE       ");
-			button5.setFont(fbutton);
+			panel1.add(button2, p1);
+		JButton button3 = new JButton("Search Text");
+			button3.setFont(fbutton);
 			p1.fill = GridBagConstraints.VERTICAL;
 			p1.ipady = 20;
 			p1.gridx = 0;
 			p1.gridy = 5;
-			panel1.add(button5, p1);
+			panel1.add(button3, p1);
 			
-		JTextField button2 = new JTextField("	Enter Add Text	");
-			button2.setFont(fbutton);
+		JTextField text1 = new JTextField("	Enter Add Text	");
+			text1.setFont(fbutton);
 			p2.fill = GridBagConstraints.VERTICAL;
 			p2.ipady = 20;
 			p2.insets = new Insets(15,0,15,40);
 			p2.gridx = 0;
-			p2.gridy = 5;
-			panel2.add(button2, p2);
-		JTextField button4 = new JTextField("	Enter Remove Text	");
-			button4.setFont(fbutton);
+			p2.gridy = 0;
+			panel2.add(text1, p2);
+		JTextField text2 = new JTextField("	Enter Remove Text	");
+			text2.setFont(fbutton);
 			p2.fill = GridBagConstraints.VERTICAL;
 			p2.ipady = 20;
 			p1.weightx = 0;
 			p2.gridx = 0;
 			p2.gridy = 3;
-			panel2.add(button4, p2);
-		JTextField button6 = new JTextField("	Enter Search Text	");
-			button6.setFont(fbutton);
+			panel2.add(text2, p2);
+		JTextField text3 = new JTextField("	Enter Search Text	");
+			text3.setFont(fbutton);
 			p2.fill = GridBagConstraints.VERTICAL;
 			p2.ipady = 20;
 			p2.gridx = 0;
-			p2.gridy = 0;
-			panel2.add(button6, p2);
+			p2.gridy = 5;
+			panel2.add(text3, p2);
 
 		//create and add label to panel
 		JLabel label = new JLabel (" Project Skill Work\n");
@@ -90,7 +90,7 @@ public class LinkedListGUI extends JFrame
 	public static void main (String [] args)
 	{
 		JFrame frame = new LinkedListGUI();
-		frame.setSize(1200, 800);
+		frame.setSize(800, 800);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
