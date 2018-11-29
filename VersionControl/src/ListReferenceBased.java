@@ -11,6 +11,12 @@ public class ListReferenceBased implements ListInterface
 		head = null;
 		numItems = 0;
 	}// end default constructor
+	
+	public void display() 
+	{}
+
+	public void removeAll() 
+	{}
 
 	public boolean isEmpty() 
 	{
@@ -27,10 +33,14 @@ public class ListReferenceBased implements ListInterface
 
 	public Node find(int index)
 	{
-		return head;
-		// Locates a specified node in a linked list.
-		// Precondition: index is the number of the desired node. Assumes that 1 <= index <= numItems+1 
-		// Postcondition: Returns a reference to the desired node.
+		  Node now = head;
+		  
+		  for(int i = 0; i < index; i++) {
+			  
+			  now = now.getNext();
+		  }
+		  
+		  return now;
 	}// end find
 	
 	public Object get(int index) throws ListException
@@ -41,14 +51,60 @@ public class ListReferenceBased implements ListInterface
 	}	
 
 	public void add(int index, Object item) throws ListException 
-	{}// end add
+	{
+		Node curr = head;
+		Node prev = new Node(null, null);
+		Node newNode = new Node(item);
+
+		if (index == 0) 
+		{
+			  head = newNode;
+			  numItems++;
+		} 
+		else 
+	    {
+			  int a = 0;
+			  
+			  //checks list is not empty && determines point of insertion
+			  while (curr != null && a < index) 
+			  {
+				  if(index > numItems)
+				  {
+					  throw new ListException("");
+				  }
+				  else
+				  {
+					  prev = curr;
+					  curr = curr.getNext();
+					  a++;
+				  }
+			  }
+			  	
+		    newNode.setNext(curr);
+			prev.setNext(newNode);
+			numItems++;
+	    }
+	}  // end add
 
 	public void remove(int index) throws ListException
-	{} // end remove
-
-	public void display() 
-	{}
-
-	public void removeAll() 
-	{}
+	{
+		if(index == 0)
+		{
+			head = head.getNext();
+			numItems--;
+		}
+		else
+		{
+			Node prev = null;
+			Node curr = head;
+			
+			for(int i = 0; i < index; i++)
+			{
+				prev = curr;
+				curr = curr.getNext();
+			}
+			prev.setNext(curr.getNext());
+			numItems--;
+		}
+	} // end remove
 } // end ListReferenceBased
