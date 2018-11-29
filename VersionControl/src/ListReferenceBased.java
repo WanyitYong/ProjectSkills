@@ -11,6 +11,12 @@ public class ListReferenceBased implements ListInterface
 		head = null;
 		numItems = 0;
 	}// end default constructor
+	
+	public void display() 
+	{}
+
+	public void removeAll() 
+	{}
 
 	public boolean isEmpty() 
 	{
@@ -101,10 +107,4 @@ public class ListReferenceBased implements ListInterface
 			numItems--;
 		}
 	} // end remove
-
-	public void display() 
-	{}
-
-	public void removeAll() 
-	{}
 } // end ListReferenceBased
