@@ -13,10 +13,20 @@ public class ListReferenceBased implements ListInterface
 	}// end default constructor
 	
 	public void display() 
-	{}
+	{
+		Node curr = head;
+		while(curr != null)
+		{
+			System.out.println(curr.getItem());
+			curr = curr.getNext();
+		}
+	}
 
 	public void removeAll() 
-	{}
+	{
+		head = null;
+		numItems = 0;
+	}
 
 	public boolean isEmpty() 
 	{
