@@ -34,7 +34,40 @@ public class ListReferenceBased implements ListInterface
 	}// end find
 
 	public void add(int index, Object item) throws ListException 
-	{}  // end add
+	{
+		Node curr = head;
+		Node prev = new Node(null, null);
+		Node newNode = new Node(item);
+
+		if (index == 0) 
+		{
+			  head = newNode;
+			  numItems++;
+		} 
+		else 
+	    {
+			  int a = 0;
+			  
+			  //checks list is not empty && determines point of insertion
+			  while (curr != null && a < index) 
+			  {
+				  if(index > numItems)
+				  {
+					  throw new ListException("");
+				  }
+				  else
+				  {
+					  prev = curr;
+					  curr = curr.getNext();
+					  a++;
+				  }
+			  }
+			  	
+		    newNode.setNext(curr);
+			prev.setNext(newNode);
+			numItems++;
+	    }
+	}  // end add
 
 	public void remove(int index) throws ListException
 	{} // end remove
