@@ -1,6 +1,9 @@
 /LinkedListGUI.class
 /ListException.class
+<<<<<<< HEAD
+=======
 /ListIndexOutOfBoundsException.class
+>>>>>>> branch 'master' of https://github.com/WanyitYong/ProjectSkills
 /ListInterface.class
 /ListReferenceBased.class
 /Node.class
