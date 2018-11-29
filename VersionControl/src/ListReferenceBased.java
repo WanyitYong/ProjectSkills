@@ -33,14 +33,14 @@ public class ListReferenceBased implements ListInterface
 
 	public Node find(int index)
 	{
-		  Node curr = head;
+		  Node now = head;
 		  
 		  for(int i = 0; i < index; i++) {
 			  
-			  curr = curr.getNext();
+			  now = now.getNext();
 		  }
 		  
-		  return curr;
+		  return now;
 	}// end find
 	
 	public Object get(int index) throws ListException
