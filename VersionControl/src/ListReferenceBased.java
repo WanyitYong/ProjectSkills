@@ -36,6 +36,13 @@ public class ListReferenceBased implements ListInterface
 		  
 		  return curr;
 	}// end find
+	
+	public Object get(int index) throws ListException
+	{  
+		  Node temp = find(index);
+		  
+		  return temp.getItem();
+	}	
 
 	public void add(int index, Object item) throws ListException 
 	{}  // end add
@@ -45,13 +52,6 @@ public class ListReferenceBased implements ListInterface
 
 	public void display() 
 	{}
-
-	public Object get(int index) throws ListException
-	{  
-		  Node temp = find(index);
-		  
-		  return temp.getItem();
-	}
 
 	public void removeAll() 
 	{}
