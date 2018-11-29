@@ -37,7 +37,26 @@ public class ListReferenceBased implements ListInterface
 	{}  // end add
 
 	public void remove(int index) throws ListException
-	{} // end remove
+	{
+		if(index == 0)
+		{
+			head = head.getNext();
+			numItems--;
+		}
+		else
+		{
+			Node prev = null;
+			Node curr = head;
+			
+			for(int i = 0; i < index; i++)
+			{
+				prev = curr;
+				curr = curr.getNext();
+			}
+			prev.setNext(curr.getNext());
+			numItems--;
+		}
+	} // end remove
 
 	public void display() 
 	{}
