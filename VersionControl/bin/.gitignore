@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /LinkedListGUI.class
 /ListException.class
 <<<<<<< HEAD
@@ -7,3 +8,10 @@
 /ListInterface.class
 /ListReferenceBased.class
 /Node.class
+=======
+/LinkedListGUI.class
+/ListException.class
+/ListInterface.class
+/ListReferenceBased.class
+/Node.class
+>>>>>>> refs/heads/Add_Function
