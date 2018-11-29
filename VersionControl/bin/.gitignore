@@ -1,5 +1,17 @@
+<<<<<<< HEAD
+/LinkedListGUI.class
+/ListException.class
+<<<<<<< HEAD
+=======
+/ListIndexOutOfBoundsException.class
+>>>>>>> branch 'master' of https://github.com/WanyitYong/ProjectSkills
+/ListInterface.class
+/ListReferenceBased.class
+/Node.class
+=======
 /LinkedListGUI.class
 /ListException.class
 /ListInterface.class
 /ListReferenceBased.class
 /Node.class
+>>>>>>> refs/heads/Add_Function
