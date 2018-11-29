@@ -27,10 +27,14 @@ public class ListReferenceBased implements ListInterface
 
 	public Node find(int index)
 	{
-		return head;
-		// Locates a specified node in a linked list.
-		// Precondition: index is the number of the desired node. Assumes that 1 <= index <= numItems+1 
-		// Postcondition: Returns a reference to the desired node.
+		  Node curr = head;
+		  
+		  for(int i = 0; i < index; i++) {
+			  
+			  curr = curr.getNext();
+		  }
+		  
+		  return curr;
 	}// end find
 
 	public void add(int index, Object item) throws ListException 
@@ -43,8 +47,10 @@ public class ListReferenceBased implements ListInterface
 	{}
 
 	public Object get(int index) throws ListException
-	{
-		return null;
+	{  
+		  Node temp = find(index);
+		  
+		  return temp.getItem();
 	}
 
 	public void removeAll() 
