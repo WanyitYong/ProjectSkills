@@ -12,14 +12,19 @@ public class ListReferenceBased implements ListInterface
 		numItems = 0;
 	}// end default constructor
 	
-	public void display() 
+	public String[] display() 
 	{
-		Node curr = head;
-		while(curr != null)
+		String[] array = new String[numItems];
+		String next = "";
+		int i = 0;
+		for(Node curr = head; curr != null; curr = curr.getNext(), i++)
 		{
-			System.out.println(curr.getItem());
-			curr = curr.getNext();
-		}
+			System.out.print(curr.getItem() + " ");
+			next = curr.getItem().toString();
+			array[i] = next;	
+		}	
+		System.out.println();
+		return array;
 	}
 
 	public void removeAll() 
@@ -45,8 +50,8 @@ public class ListReferenceBased implements ListInterface
 	{
 		  Node now = head;
 		  
-		  for(int i = 0; i < index; i++) {
-			  
+		  for(int i = 0; i < index; i++)
+		  {			  
 			  now = now.getNext();
 		  }
 		  
@@ -62,8 +67,7 @@ public class ListReferenceBased implements ListInterface
 
 	public void add(int index, Object item) throws ListException 
 	{
-		Node curr = head;
-		Node prev = new Node(null, null);
+		Node prev = null;
 		Node newNode = new Node(item);
 
 		if (index == 0) 
@@ -73,24 +77,13 @@ public class ListReferenceBased implements ListInterface
 		} 
 		else 
 	    {
-			  int a = 0;
-			  
-			  //checks list is not empty && determines point of insertion
-			  while (curr != null && a < index) 
-			  {
-				  if(index > numItems)
-				  {
-					  throw new ListException("");
-				  }
-				  else
-				  {
-					  prev = curr;
-					  curr = curr.getNext();
-					  a++;
-				  }
-			  }
-			  	
-		    newNode.setNext(curr);
+			//checks list is not empty && determines point of insertion
+			Node curr = head;
+			while(curr != null)
+			{
+				prev = curr;
+				curr = curr.getNext();
+			}
 			prev.setNext(newNode);
 			numItems++;
 	    }

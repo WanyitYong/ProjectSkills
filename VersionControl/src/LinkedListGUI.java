@@ -142,6 +142,89 @@ public class LinkedListGUI extends JFrame implements ActionListener
 
 	public void actionPerformed(ActionEvent e) 
 	{
-		
+		if(e.getSource() == button1)
+		{
+			String word = text1.getText();
+			la.add(num, word);
+			String printW = "";
+			arr = la.display();
+			for(int i = 0; i < arr.length; i++)
+			{
+				printW += arr[i] + " ";
+			}
+			label3.setText(printW);
+			num++;
+		}
+		else if(e.getSource() == button2)
+		{
+			String word2 = text2.getText();
+			int index = 0; 
+			boolean ch = false;
+			for(int i = 0; i < arr.length; i++)
+			{
+				String check = arr[i];
+				if(check.equals(word2))
+				{
+					index = i;
+					ch = true;
+					break;
+				}
+			}
+			if(ch == true)
+			{
+				la.remove(index);
+				String printW2 = "";
+				arr = la.display();
+				for(int i = 0; i < arr.length; i++)
+				{
+					printW2 += arr[i] + " ";
+				}
+				label3.setText("<html>Word has been deleted.<br> Word remain: </hmtl>" + printW2);
+				num--;
+			}
+			else if(ch == false)
+			{
+				label3.setText("Can't the word in system!");
+			}
+		}
+		else if(e.getSource() == button3)
+		{
+			String word = text3.getText();
+			int index = 0; 
+			boolean che = false;
+			for(int i = 0; i < arr.length; i++)
+			{
+				String check = arr[i];
+				if(check.equals(word))
+				{
+					index = i;
+					che = true;
+					break;
+				}
+			}
+			if(che == true)
+			{
+				Node now = la.find(index);
+				String printW = now.getItem().toString();
+				//label3.setText("The word is finded in list: \"" + printW + "\" and the index is: " + (index + 1));
+				label3.setText("Found the word in system! The index is: " + (index + 1));
+			}
+			else if(che == false)
+			{
+				label3.setText("Can't the word in system!");
+			}
+		}
+		else if(e.getSource() == button4)
+		{
+			boolean check= la.isEmpty();
+			if(check == true)
+			{
+				label3.setText("The list is empty!");
+			}
+			else if(check == false)
+			{
+				label3.setText("The list is not empty!");
+			}
+		}
 	}
 }
