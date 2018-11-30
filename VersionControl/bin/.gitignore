@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /LinkedListGUI.class
 /ListException.class
 <<<<<<< HEAD
@@ -7,6 +8,23 @@
 /ListInterface.class
 /ListReferenceBased.class
 /Node.class
+=======
+/LinkedListGUI.class
+/ListException.class
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+/ListIndexOutOfBoundsException.class
+>>>>>>> branch 'master' of https://github.com/WanyitYong/ProjectSkills
+=======
+>>>>>>> refs/heads/Remove_Function
+/ListInterface.class
+/ListReferenceBased.class
+/Node.class
+<<<<<<< HEAD
 /LinkedListGUI$1.class
 /LinkedListGUI$2.class
 /LinkedListGUI$3.class
+=======
+>>>>>>> refs/heads/Add_Function
+>>>>>>> branch 'master' of https://github.com/WanyitYong/ProjectSkills

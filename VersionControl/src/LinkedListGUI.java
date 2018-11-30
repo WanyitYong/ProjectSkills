@@ -36,7 +36,7 @@ public class LinkedListGUI extends JFrame
 			p1.fill = GridBagConstraints.VERTICAL;
 			p1.ipady = 20;
 			p1.weightx = 0.5;
-			p1.insets = new Insets(15,0,15,50);
+			p1.insets = new Insets(15,40,15,0);
 			p1.gridx = 0;
 			p1.gridy = 0;
 			panel1.add(button1, p1);
@@ -82,7 +82,7 @@ public class LinkedListGUI extends JFrame
 			text1.setFont(fbutton);
 			p2.fill = GridBagConstraints.VERTICAL;
 			p2.ipady = 20;
-			p2.insets = new Insets(15,40,15,0);
+			p2.insets = new Insets(15,0,15,40);
 			p2.gridx = 0;
 			p2.gridy = 0;
 			panel2.add(text1, p2);
@@ -112,8 +112,8 @@ public class LinkedListGUI extends JFrame
 			Font flabel2 = new Font("Serif", Font.ITALIC, 30);
 			label2.setFont(flabel2);
 		cPane.add(new JLabel(" "), BorderLayout.NORTH);
-		cPane.add(panel1, BorderLayout.EAST);
-		cPane.add(panel2, BorderLayout.WEST);
+		cPane.add(panel1, BorderLayout.WEST);
+		cPane.add(panel2, BorderLayout.EAST);
 		cPane.add(panel3, BorderLayout.CENTER);
 		cPane.add(label2, BorderLayout.SOUTH);
 	}
