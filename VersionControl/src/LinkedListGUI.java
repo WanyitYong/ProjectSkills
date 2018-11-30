@@ -12,7 +12,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 	ListReferenceBased la = new ListReferenceBased();
 	public LinkedListGUI()
 	{
-		super("ATM Machine Layout");
+		super("Project Skill Demo");
 
 		//create content pane
 		Container cPane = getContentPane();
