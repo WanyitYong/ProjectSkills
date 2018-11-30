@@ -1,14 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LinkedListGUI extends JFrame
 {
+	static JButton button1, button2, button3;
+	static JTextField text1, text2, text3;
+	static JLabel label1,label2;
+	
 	public LinkedListGUI()
 	{
-		super("ATM Machine Layout");
+		super("Project Skills - CA3");
 
 		//create content pane
 		Container cPane = getContentPane();
+		
+		ListReferenceBased la = new ListReferenceBased();
 
 		//create panel
 		JPanel panel1 = new JPanel();
@@ -23,7 +31,7 @@ public class LinkedListGUI extends JFrame
 
 		//create button
 		Font fbutton = new Font("Serif", Font.BOLD, 15);
-		JButton button1 = new JButton("Add Text");
+		button1 = new JButton("Add Text");
 			button1.setFont(fbutton);
 			p1.fill = GridBagConstraints.VERTICAL;
 			p1.ipady = 20;
@@ -32,22 +40,45 @@ public class LinkedListGUI extends JFrame
 			p1.gridx = 0;
 			p1.gridy = 0;
 			panel1.add(button1, p1);
-		JButton button2 = new JButton("Remove Text");
+			button1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent aE) {
+					String addText = text1.getText();
+					String[] parts = addText.split(",");
+					int index = Integer.parseInt(parts[0]);
+					la.add(index,parts[1]);
+					label2.setText("hahaha");
+				}	
+			});
+		button2 = new JButton("Remove Text");
 			button2.setFont(fbutton);
 			p1.fill = GridBagConstraints.VERTICAL;
 			p1.ipady = 20;
 			p1.gridx = 0;
 			p1.gridy = 3;
 			panel1.add(button2, p1);
-		JButton button3 = new JButton("Search Text");
+			button2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent aE) {
+					String removeText = text2.getText();
+					int index = Integer.parseInt(removeText);
+					la.remove(index);
+				}	
+			});
+		button3 = new JButton("Search Text");
 			button3.setFont(fbutton);
 			p1.fill = GridBagConstraints.VERTICAL;
 			p1.ipady = 20;
 			p1.gridx = 0;
 			p1.gridy = 5;
 			panel1.add(button3, p1);
+			button3.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent aE) {
+					String searchText = text3.getText();
+					int index = Integer.parseInt(searchText);
+					la.get(index);
+				}	
+			});
 			
-		JTextField text1 = new JTextField("	Enter Add Text	");
+		text1 = new JTextField("	Enter Add Text	");
 			text1.setFont(fbutton);
 			p2.fill = GridBagConstraints.VERTICAL;
 			p2.ipady = 20;
@@ -55,7 +86,7 @@ public class LinkedListGUI extends JFrame
 			p2.gridx = 0;
 			p2.gridy = 0;
 			panel2.add(text1, p2);
-		JTextField text2 = new JTextField("	Enter Remove Text	");
+		text2 = new JTextField("	Enter Remove Text	");
 			text2.setFont(fbutton);
 			p2.fill = GridBagConstraints.VERTICAL;
 			p2.ipady = 20;
@@ -63,7 +94,7 @@ public class LinkedListGUI extends JFrame
 			p2.gridx = 0;
 			p2.gridy = 3;
 			panel2.add(text2, p2);
-		JTextField text3 = new JTextField("	Enter Search Text	");
+		text3 = new JTextField("	Enter Search Text	");
 			text3.setFont(fbutton);
 			p2.fill = GridBagConstraints.VERTICAL;
 			p2.ipady = 20;

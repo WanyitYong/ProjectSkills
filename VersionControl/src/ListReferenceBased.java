@@ -45,14 +45,97 @@ public class ListReferenceBased implements ListInterface
 	}	
 
 	public void add(int index, Object item) throws ListException 
-	{}  // end add
+	{
+		 if(index > numItems) {
+			  
+			  throw new ListException("");
+		  }
+		  
+		  if(numItems == 0) {
+			  
+			  Node first = new Node(item);
+			  head = first;
+			  numItems++;
+		  }
+		  else if(index == 0 && numItems > 0) {
+			  
+			  Node first = new Node(item);
+			  first.setNext(head);
+			  head = first;
+			  numItems++;
+		  }
+		  else if(index > 0 && index < numItems) {
+			  
+			  Node nxt = new Node(item);
+			  Node curr = head;
+			  Node prev = null;
+			  
+			  for(int i = 0; i < index; i++) {
+				  
+				  prev = curr;
+				  curr = curr.getNext();
+			  }
+			  
+			  nxt.setNext(curr);
+			  prev.setNext(nxt);
+			  numItems++;
+		  }
+		  else {
+			  
+			  Node nxt = new Node(item);
+			  Node curr = head;
+			  Node prev = null;
+			  
+			  while(curr != null) {
+				  
+				  prev = curr;
+				  curr = curr.getNext();
+			  }
+			  
+			  prev.setNext(nxt);
+			  numItems++;
+		  }
+	}  // end add
 
 	public void remove(int index) throws ListException
-	{} // end remove
+	{
+		  if(index == 0) {
+			  head = head.getNext();
+			  numItems--;
+		  }
+		  else {
+			  
+			  Node curr = head;
+			  Node prev = null;
+			  
+			  for(int i = 0; i < index; i++) {
+				  
+				  prev = curr;
+				  curr = curr.getNext();
+			  }
+			  
+			  prev.setNext(curr.getNext());
+			  numItems--;
+		  }
+	} // end remove
 
-	public void display() 
-	{}
+	public String display() 
+	{
+		Node curr = head;
+		String single = "";
+		  
+		  while(curr != null) {
+			  
+			  single = curr.getItem().toString() + ", ";
+			  curr = curr.getNext();
+		  }
+		  
+		return single;
+	}
 
 	public void removeAll() 
-	{}
+	{
+		head = null;
+		numItems = 0;
+	}
 } // end ListReferenceBased
