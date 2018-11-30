@@ -46,7 +46,7 @@ public class LinkedListGUI extends JFrame
 					String[] parts = addText.split(",");
 					int index = Integer.parseInt(parts[0]);
 					la.add(index,parts[1]);
-					label2.setText("hahaha");
+					label2.setText(la.display());
 				}	
 			});
 		button2 = new JButton("Remove Text");
