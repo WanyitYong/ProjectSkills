@@ -5,17 +5,9 @@ import java.awt.event.ActionListener;
 
 public class LinkedListGUI extends JFrame implements ActionListener
 {
-	JButton button1 = new JButton("Add Text");
-	JButton button2 = new JButton("Remove Text");
-	JButton button3 = new JButton("Search Text");
-	JButton button4 = new JButton("Check is Empty?");
-	JTextField text1 = new JTextField("Enter Add Text");
-	JTextField text2 = new JTextField("Enter Remove Text");
-	JTextField text3 = new JTextField("Enter Search Text");
-	JLabel label = new JLabel (" Project Skill Work\n");
-	JLabel label1 = new JLabel ("<html>Rules: No space allow when putting text,<br>Upper case will be sensitive in this program.</html>");
-	JLabel label2 = new JLabel ("Text Display Area: ");
-	JLabel label3 = new JLabel ("Example");
+	static JButton button1, button2, button3, button4;
+	static JTextField text1, text2, text3;
+	static JLabel label, label1,label2, label3;
 	int num = 0; String[] arr; 
 	ListReferenceBased la = new ListReferenceBased();
 	public LinkedListGUI()
@@ -39,6 +31,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		//create button
 		Font fbutton = new Font("Serif", Font.BOLD, 18);
 		
+		button4 = new JButton("Check Empty");
 		button4.setFont(fbutton);
 		button4.setPreferredSize( new Dimension( 150, 24 ) );
 		button4.addActionListener(this);
@@ -50,6 +43,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		p1.gridy = 0;
 		panel1.add(button4, p1);
 		
+		button1 = new JButton("Add Text");
 		button1.setFont(fbutton);
 		button1.setPreferredSize( new Dimension( 150, 24 ) );
 		button1.addActionListener(this);
@@ -59,6 +53,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		p1.gridy = 3;
 		panel1.add(button1, p1);
 	
+		button2 = new JButton("Remove Text");
 		button2.setFont(fbutton);
 		button2.setPreferredSize( new Dimension( 150, 24 ) );
 		button2.addActionListener(this);
@@ -68,6 +63,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		p1.gridy = 5;
 		panel1.add(button2, p1);
 	
+		button3 = new JButton("Search Text");
 		button3.setFont(fbutton);
 		button3.setPreferredSize( new Dimension( 150, 24 ) );
 		button3.addActionListener(this);
@@ -77,6 +73,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		p1.gridy = 7;
 		panel1.add(button3, p1);
 			
+		label1 = new JLabel ("<html>Rule #1: Texts with spaces are not allowed. <br>Rule #2: Texts are case sensitive.</html>");
 		label1.setFont(fbutton);
 		label1.setPreferredSize( new Dimension( 400, 24 ) );
 		p2.fill = GridBagConstraints.VERTICAL;
@@ -86,6 +83,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		p2.gridy = 0;
 		panel2.add(label1, p2);
 		
+		text1 = new JTextField("Enter Text to Add");
 		text1.setFont(fbutton);
 		text1.setPreferredSize( new Dimension( 400, 24 ) );
 		p2.fill = GridBagConstraints.VERTICAL;
@@ -94,6 +92,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		p2.gridy = 3;
 		panel2.add(text1, p2);
 
+		text2 = new JTextField("Enter Text To Remove");
 		text2.setFont(fbutton);
 		text2.setPreferredSize( new Dimension( 400, 24 ) );
 		p2.fill = GridBagConstraints.VERTICAL;
@@ -103,6 +102,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 		p2.gridy = 5;
 		panel2.add(text2, p2);
 	
+		text3 = new JTextField("Enter Text to Search");
 		text3.setFont(fbutton);
 		text3.setPreferredSize( new Dimension( 400, 24 ) );
 		p2.fill = GridBagConstraints.VERTICAL;
@@ -113,11 +113,14 @@ public class LinkedListGUI extends JFrame implements ActionListener
 
 		//create and add label to panel
 		Font flabel = new Font("Serif", Font.ITALIC, 35);
+		label = new JLabel ("Linked List");
 		label.setFont(flabel);
 		panel3.add(label);
 
 		
 		Font flabel2 = new Font("Serif", Font.ITALIC, 30);
+		label2 = new JLabel ("Text Display Area: ");
+		label3 = new JLabel ("________");
 		label2.setFont(flabel2);
 		JPanel panel4 = new JPanel();
 		panel4.add(label2);
@@ -152,7 +155,7 @@ public class LinkedListGUI extends JFrame implements ActionListener
 			{
 				printW += arr[i] + " ";
 			}
-			label3.setText(printW);
+			label3.setText("\"" + printW + "\"" + " has been added");
 			num++;
 		}
 		else if(e.getSource() == button2)
@@ -179,12 +182,12 @@ public class LinkedListGUI extends JFrame implements ActionListener
 				{
 					printW2 += arr[i] + " ";
 				}
-				label3.setText("<html>Word has been deleted.<br> Word remain: </hmtl>" + printW2);
+				label3.setText("\"" + word2 + " \" has been deleted...Word remain: " + printW2);
 				num--;
 			}
 			else if(ch == false)
 			{
-				label3.setText("Can't the word in system!");
+				label3.setText(word2 + "does not exist!");
 			}
 		}
 		else if(e.getSource() == button3)
@@ -206,12 +209,11 @@ public class LinkedListGUI extends JFrame implements ActionListener
 			{
 				Node now = la.find(index);
 				String printW = now.getItem().toString();
-				//label3.setText("The word is finded in list: \"" + printW + "\" and the index is: " + (index + 1));
-				label3.setText("Found the word in system! The index is: " + (index + 1));
+				label3.setText("\"" + word + " \" exists! The index is: " + (index + 1));
 			}
 			else if(che == false)
 			{
-				label3.setText("Can't the word in system!");
+				label3.setText("Can't find the word in system!");
 			}
 		}
 		else if(e.getSource() == button4)

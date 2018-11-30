@@ -56,13 +56,12 @@ public class ListReferenceBased implements ListInterface
 		  }
 		  
 		  return now;
-	}// end find
+	}
 	
 	public Object get(int index) throws ListException
 	{  
-		  Node temp = find(index);
-		  
-		  return temp.getItem();
+		Node temp = find(index);
+		return temp.getItem();
 	}	
 
 	public void add(int index, Object item) throws ListException 
@@ -97,12 +96,12 @@ public class ListReferenceBased implements ListInterface
 			numItems--;
 		}
 		else
-		{
-			Node prev = null;
+		{  
 			Node curr = head;
-			
+			Node prev = null;
+			 
 			for(int i = 0; i < index; i++)
-			{
+			{		  
 				prev = curr;
 				curr = curr.getNext();
 			}
